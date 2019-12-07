@@ -23,8 +23,9 @@ class PhotoController {
     }
     
     func searchPhoto() {
-        self.interactor.fetchData(url: "abc") {[weak self] (data, error) in
+        self.interactor.fetchData(url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=49b2afaa0f8ef1d1ec558b337ca989ff&text=cats&page=1&nojsoncallback=1") {[weak self] (data, error) in
             
         }
+        
     }
 }
