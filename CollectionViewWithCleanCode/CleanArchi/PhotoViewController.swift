@@ -9,9 +9,13 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-
+    var photoCollectionView : PhotoCollectionView?
+    var controller : PhotController?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.controller = PhotController()
+        self.photoCollectionView = self.view as? PhotoCollectionView
+        self.photoCollectionView?.bind(controller: controller!)
     }
 
 }

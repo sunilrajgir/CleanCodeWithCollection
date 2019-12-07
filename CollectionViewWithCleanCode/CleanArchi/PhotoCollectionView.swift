@@ -9,13 +9,9 @@
 import UIKit
 
 class PhotoCollectionView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var photoController : PhotController?
+    func bind(controller : PhotController) {
+        self.photoController = controller
     }
-    */
 
 }
