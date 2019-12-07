@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PhotoCollectionView: UIView {
-    var photoController : PhotController?
-    func bind(controller : PhotController) {
+class PhotoView: UIView {
+    var photoController : PhotoController?
+    func bind(controller : PhotoController) {
         self.photoController = controller
     }
 

@@ -9,12 +9,12 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-    var photoCollectionView : PhotoCollectionView?
-    var controller : PhotController?
+    var photoCollectionView : PhotoView?
+    var controller : PhotoController?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.controller = PhotController()
-        self.photoCollectionView = self.view as? PhotoCollectionView
+        self.controller = PhotoController()
+        self.photoCollectionView = self.view as? PhotoView
         self.photoCollectionView?.bind(controller: controller!)
     }
 
