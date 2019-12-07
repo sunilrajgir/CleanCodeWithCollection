@@ -16,9 +16,34 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="PhotoView" customModule="CollectionViewWithCleanCode" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xCB-ur-dqC">
+                    <rect key="frame" x="20" y="44" width="374" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7W8-du-nAd">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="i5M-Pr-FkT" id="kFt-nL-ocw"/>
+                        <outlet property="delegate" destination="i5M-Pr-FkT" id="6JI-YW-7eg"/>
+                    </connections>
+                </collectionView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xCB-ur-dqC" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="U3A-rq-7aQ"/>
+                <constraint firstItem="xCB-ur-dqC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="WKi-88-qt3"/>
+                <constraint firstItem="xCB-ur-dqC" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.912946" id="rLx-ho-xL3"/>
+                <constraint firstItem="xCB-ur-dqC" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.903382" id="vtg-Pk-AGq"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="127"/>
+            <connections>
+                <outlet property="collectionView" destination="xCB-ur-dqC" id="Kmu-Bu-2Ev"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </view>
     </objects>
 </document>

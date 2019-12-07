@@ -17,5 +17,9 @@ class PhotoViewController: UIViewController {
         self.photoCollectionView = self.view as? PhotoView
         self.photoCollectionView?.bind(controller: controller!)
     }
+    
+    override class func awakeFromNib() {
+        
+    }
 
 }
