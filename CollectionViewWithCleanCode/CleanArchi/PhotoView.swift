@@ -27,7 +27,7 @@ class PhotoView: UIView {
 
 }
 
-extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1;
     }
@@ -40,5 +40,17 @@ extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate {
         return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (UIScreen.main.bounds.size.width-60)/3
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10.0
+    }
     
 }

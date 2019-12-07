@@ -9,10 +9,21 @@
 import UIKit
 
 class PhotoCell: UICollectionViewCell {
-
+    var imageView : UIImageView?
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.addImageView()
         // Initialization code
+    }
+    
+    func addImageView(){
+        self.imageView = UIImageView(frame: self.bounds)
+        self.imageView?.backgroundColor = .red
+        //self.addSubview(self.imageView!)
+    }
+    
+    override func prepareForReuse() {
+        self.imageView?.removeFromSuperview()
     }
 
 }
