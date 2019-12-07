@@ -22,10 +22,17 @@ class PhotoViewController: UIViewController {
         let presenter = PhotoPresenter(viewModel: photoViewModel)
         self.controller = PhotoController(homeInteractor:interactor, presenter: presenter)
         self.photoView?.bind(controller: controller!)
+        self.setUpNavigation()
     }
     
-    override class func awakeFromNib() {
-        
+    func setUpNavigation() {
+        let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 50, y: 0, width: UIScreen.main.bounds.size.width-200, height: 20))
+        searchBar.placeholder = "Enter Text"
+        self.navigationItem.titleView = searchBar
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(searchButtonAction))
     }
-
+    
+    @objc func searchButtonAction() {
+        self.controller?.searchPhoto()
+    }
 }

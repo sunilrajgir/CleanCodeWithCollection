@@ -3,4 +3,70 @@
    uuid = "0836786C-5BA0-4910-A893-2D3BDB204538"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F61FA365-5016-451B-8D84-A1EBDE534DA7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CleanArchi/PhotoController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "searchPhoto()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F61FA365-5016-451B-8D84-A1EBDE534DA7 - 8a069031d8a6f1ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionViewWithCleanCode.PhotoController.searchPhoto() -&gt; ()"
+                  moduleName = "CollectionViewWithCleanCode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sunil.kumar1timesinternet.in/Desktop/iOSLearning/CleanCodeWithCollection/CollectionViewWithCleanCode/CleanArchi/PhotoController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  uuid = "F61FA365-5016-451B-8D84-A1EBDE534DA7 - befdcb0f744636ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CollectionViewWithCleanCode.PhotoController.searchPhoto() -&gt; ()"
+                  moduleName = "CollectionViewWithCleanCode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sunil.kumar1timesinternet.in/Desktop/iOSLearning/CleanCodeWithCollection/CollectionViewWithCleanCode/CleanArchi/PhotoController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5059408-F279-4AAB-85BD-9D92483F0CD6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CleanArchi/PhotoInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "fetchData(url:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

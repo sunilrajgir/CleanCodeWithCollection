@@ -23,6 +23,8 @@ class PhotoController {
     }
     
     func searchPhoto() {
-        
+        self.interactor.fetchData(url: "abc") {[weak self] (data, error) in
+            
+        }
     }
 }
