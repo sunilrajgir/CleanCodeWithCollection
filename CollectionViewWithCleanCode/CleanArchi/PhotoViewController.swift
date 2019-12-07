@@ -14,8 +14,7 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataGateway = PhotoDataGateway()
-        let connectionGateway = PhotoConnectionGateway()
-        let interactor = PhotoInteractor(dataGateway: dataGateway, connectionGateway: connectionGateway)
+        let interactor = PhotoInteractor(dataGateway: dataGateway, flickerModel: FlickrModel.self)
         self.photoView = self.view as? PhotoView
         let photoViewModel = PhotoViewModel()
         photoViewModel.viewDelegate = self.photoView

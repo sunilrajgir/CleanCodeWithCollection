@@ -17,36 +17,33 @@ enum ResponseState {
 class PhotoInteractor {
 
     private let dataGateway : PhotoDataGateway
-    private let connection : PhotoConnectionGateway
+    private let flickerModel : FlickrModel.Type
     
-    init(dataGateway : PhotoDataGateway, connectionGateway : PhotoConnectionGateway) {
+    init(dataGateway : PhotoDataGateway, flickerModel : FlickrModel.Type) {
         self.dataGateway = dataGateway
-        self.connection = connectionGateway
+        self.flickerModel = flickerModel
     }
     
-    func fetchData(url: String, completionBlock:@escaping((_ data:Data?, _ error:Error?)->Void))  {
-    
-        if(!self.connection.isConnected()) {
-            completionBlock(nil, nil)
-            return
-        }else {
-            self.dataGateway.loadUrlContent(url: url) { (data, error) in
-                do
-                {
-                    let flickrPhotos = try JSONDecoder().decode(FlickrImageResult.self, from: data!)
-                    print(flickrPhotos)
-                    
-                } catch {
-                    print(error.localizedDescription)
-                }
-               
+    func fetchData(url: String, completionBlock:@escaping((_ data:Any?, _ error:Error?)->Void))  {
+        self.dataGateway.loadUrlContent(url: url) { (data, error) in
+            if error == nil {
+            do
+            {
+                let flickrPhotos = try JSONDecoder().decode(FlickrModel.self, from: data!)
+                //print(flickrPhotos)
+                completionBlock(flickrPhotos, nil)
+            } catch {
+                //print(error.localizedDescription)
+                completionBlock(nil,error)
+            }
+            } else {
+                completionBlock(nil,error)
             }
         }
-
     }
 }
 
-struct FlickrImageResult: Codable {
+struct FlickrModel: Codable {
     let photos : FlickrPagedImageResult?
     let stat: String
 }
