@@ -9,5 +9,20 @@
 import UIKit
 
 class PhotoController {
-
+    private let interactor : PhotoInteractor
+    private let presenter : PhotoPresenter
+    
+    // @saber.inject
+    init(homeInteractor : PhotoInteractor, presenter : PhotoPresenter) {
+        self.interactor = homeInteractor
+        self.presenter = presenter
+    }
+    
+    func getViewData()-> [Int] {
+        return self.presenter.viewModel.getSourceArray()
+    }
+    
+    func searchPhoto() {
+        
+    }
 }

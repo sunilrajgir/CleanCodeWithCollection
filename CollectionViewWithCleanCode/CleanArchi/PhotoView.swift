@@ -9,6 +9,8 @@
 import UIKit
 
 class PhotoView: UIView {
+    
+    var sourceArray = [Int]()
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -16,15 +18,30 @@ class PhotoView: UIView {
         super.awakeFromNib()
     }
     
-    
-    var photoController : PhotoController?
     func bind(controller : PhotoController) {
-        
         let nib = UINib(nibName: "PhotoCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "PhotoCell")
-        self.photoController = controller
+        self.sourceArray = controller.getViewData()
     }
 
+}
+
+extension PhotoView : PhotoViewModelProtocol {
+    func showLoader() {
+        
+    }
+    
+    func showServerError() {
+        
+    }
+    
+    func showInternetConnectionError() {
+        
+    }
+    
+    func showData(array: [Int]) {
+        
+    }
 }
 
 extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -33,7 +50,7 @@ extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.sourceArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
