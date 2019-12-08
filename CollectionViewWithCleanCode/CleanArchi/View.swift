@@ -9,11 +9,15 @@
 import UIKit
 
 class View: UIView {
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var loaderView: UIActivityIndicatorView!
+    @IBOutlet var messageView: UIView!
+    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var tryAgain: UIButton!
+    
     var totalRecords = 0
     var sourceArray = [FlickrURLs]()
     var photoController : Controller?
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -25,12 +29,23 @@ class View: UIView {
         self.collectionView.register(nib, forCellWithReuseIdentifier: "PhotoCollectionCell")
         self.collectionView.register(UINib(nibName: "LoaderCollectionCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionCell")
         self.sourceArray = photoController?.getViewData() ?? [FlickrURLs]()
+        self.setDefaultState()
     }
     
     func loadNextPageData() {
         self.photoController?.nextPageAction()
     }
-
+    
+    @IBAction func tryAgainButtonAction(_ sender: UIButton) {
+        
+    }
+    
+    func setDefaultState() {
+        self.collectionView.isHidden = false
+        self.messageView.isHidden  = true
+        self.loaderView.isHidden = true
+    }
+    
 }
 
 extension View : PhotoViewModelProtocol {

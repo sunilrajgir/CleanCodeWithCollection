@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xCB-ur-dqC">
-                    <rect key="frame" x="20" y="39" width="374" height="818"/>
+                    <rect key="frame" x="20" y="44" width="374" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7W8-du-nAd">
                         <size key="itemSize" width="50" height="50"/>
@@ -30,17 +31,65 @@
                         <outlet property="delegate" destination="i5M-Pr-FkT" id="6JI-YW-7eg"/>
                     </connections>
                 </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="N95-ap-909">
+                    <rect key="frame" x="20" y="58.5" width="374" height="789"/>
+                </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62Z-IY-Lgl">
+                    <rect key="frame" x="20" y="51" width="374" height="804"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSI-d5-wJ6">
+                            <rect key="frame" x="8" y="352" width="358" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="pSn-Rg-gFQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keD-u3-1HD">
+                            <rect key="frame" x="87" y="554" width="200" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="1Ce-Hq-EE5"/>
+                                <constraint firstAttribute="height" constant="50" id="Ilp-ar-gmg"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="tryAgainButtonAction:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="Ofq-O8-Fmz"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="CSI-d5-wJ6" firstAttribute="centerY" secondItem="62Z-IY-Lgl" secondAttribute="centerY" id="3Qq-uy-LMF"/>
+                        <constraint firstAttribute="bottom" secondItem="keD-u3-1HD" secondAttribute="bottom" constant="200" id="CcG-Lx-ujd"/>
+                        <constraint firstItem="CSI-d5-wJ6" firstAttribute="width" secondItem="62Z-IY-Lgl" secondAttribute="width" multiplier="0.957219" id="UYk-2E-j8G"/>
+                        <constraint firstItem="CSI-d5-wJ6" firstAttribute="centerX" secondItem="62Z-IY-Lgl" secondAttribute="centerX" id="ZHq-pA-p5b"/>
+                        <constraint firstItem="keD-u3-1HD" firstAttribute="centerX" secondItem="62Z-IY-Lgl" secondAttribute="centerX" id="yd7-Jc-nVn"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="N95-ap-909" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.903382" id="6LF-IU-d34"/>
+                <constraint firstItem="N95-ap-909" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.964548" id="Ni8-sg-bLO"/>
                 <constraint firstItem="xCB-ur-dqC" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="U3A-rq-7aQ"/>
                 <constraint firstItem="xCB-ur-dqC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="WKi-88-qt3"/>
+                <constraint firstItem="62Z-IY-Lgl" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.982885" id="WXK-WL-UPb"/>
+                <constraint firstItem="62Z-IY-Lgl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="WoH-dd-FP9"/>
+                <constraint firstItem="N95-ap-909" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="lES-H7-msT"/>
+                <constraint firstItem="N95-ap-909" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="mcU-tZ-43o"/>
                 <constraint firstItem="xCB-ur-dqC" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.912946" id="rLx-ho-xL3"/>
+                <constraint firstItem="62Z-IY-Lgl" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.903382" id="rtF-el-Xis"/>
                 <constraint firstItem="xCB-ur-dqC" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.903382" id="vtg-Pk-AGq"/>
+                <constraint firstItem="62Z-IY-Lgl" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="xjb-Jz-D7S"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <connections>
                 <outlet property="collectionView" destination="xCB-ur-dqC" id="Kmu-Bu-2Ev"/>
+                <outlet property="loaderView" destination="N95-ap-909" id="zFb-3P-gne"/>
+                <outlet property="messageLabel" destination="CSI-d5-wJ6" id="xnR-HI-oZh"/>
+                <outlet property="messageView" destination="62Z-IY-Lgl" id="edy-ZO-7gr"/>
+                <outlet property="tryAgain" destination="keD-u3-1HD" id="Bjk-NF-q8C"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </view>
