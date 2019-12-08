@@ -22,7 +22,14 @@ class PhotoCollectionCell: UICollectionViewCell {
     }
     
     func fetchImage(imageModel: FlickrURLs) {
-        
+        ImageDownloader.shared.downloadImage(url:"https://farm66.staticflickr.com/65535/49182368667_06d70acb07.jpg") {[weak self] (image, error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                }
+                
+            }
+        }
     }
 
 }
