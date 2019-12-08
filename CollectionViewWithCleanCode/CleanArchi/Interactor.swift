@@ -24,7 +24,7 @@ class Interactor {
         self.flickerModel = flickerModel
     }
     
-    func fetchData(url: String, completionBlock:@escaping((_ data:Any?, _ error:Error?)->Void))  {
+    func fetchData(url: URL, completionBlock:@escaping((_ data:Any?, _ error:Error?)->Void))  {
         self.dataGateway.loadUrlContent(url: url) { (data, error) in
             if error == nil {
             do

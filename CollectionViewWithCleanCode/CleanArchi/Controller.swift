@@ -13,6 +13,7 @@ class Controller {
     private let presenter : Presenter
     
     var currentPage = 1
+    var text : String = ""
     
     // @saber.inject
     init(homeInteractor : Interactor, presenter : Presenter) {
@@ -24,16 +25,28 @@ class Controller {
         return self.presenter.viewModel.getSourceArray()
     }
     
-    func searchPhoto() {
-        self.interactor.fetchData(url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=49b2afaa0f8ef1d1ec558b337ca989ff&text=cats&page=\(self.currentPage)&nojsoncallback=1") {[weak self] (data, error) in
-            self?.presenter.showFetchedData(photoModel: data)
+    internal func searchPhoto(text:String) {
+        self.text = text
+        if let url = self.getListUrl() {
+            self.interactor.fetchData(url: url) {[weak self] (data, error) in
+                self?.presenter.showFetchedData(photoModel: data)
+            }
         }
     }
     
-    func nextPageAction() {
+    internal func nextPageAction() {
         self.currentPage = currentPage+1;
-        self.interactor.fetchData(url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=49b2afaa0f8ef1d1ec558b337ca989ff&text=cats&page=\(self.currentPage)&nojsoncallback=1") {[weak self] (data, error) in
-            self?.presenter.showNextPageData(photoModel: data)
+        if let url = self.getListUrl() {
+            self.interactor.fetchData(url: url) {[weak self] (data, error) in
+                self?.presenter.showNextPageData(photoModel: data)
+            }
         }
+    }
+    
+   private func getListUrl()->URL? {
+        var listUrl = URLManager.getListUrl()
+        listUrl = listUrl.replacingOccurrences(of: Constant.text, with: self.text)
+        listUrl = listUrl.replacingOccurrences(of: Constant.page, with: "\(self.currentPage)")
+        return URL(string: listUrl)
     }
 }

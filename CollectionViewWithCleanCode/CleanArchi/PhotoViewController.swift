@@ -11,6 +11,7 @@ import UIKit
 internal class PhotoViewController: UIViewController {
     var photoView : View?
     var controller : Controller?
+    let searchBar = UISearchBar(frame: CGRect(x: 50, y: 0, width: UIScreen.main.bounds.size.width-200, height: 20))
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataGateway = DataFetcher()
@@ -25,13 +26,15 @@ internal class PhotoViewController: UIViewController {
     }
     
     func setUpNavigation() {
-        let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 50, y: 0, width: UIScreen.main.bounds.size.width-200, height: 20))
-        searchBar.placeholder = "Enter Text"
-        self.navigationItem.titleView = searchBar
+        self.searchBar.placeholder = "Enter Text"
+        self.navigationItem.titleView = self.searchBar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(searchButtonAction))
     }
     
     @objc func searchButtonAction() {
-        self.controller?.searchPhoto()
+        if let inputText = self.searchBar.text, inputText.count > 0 {
+            self.controller?.searchPhoto(text: inputText)
+        }
+        self.searchBar.searchTextField.resignFirstResponder()
     }
 }

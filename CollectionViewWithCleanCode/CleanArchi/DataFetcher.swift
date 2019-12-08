@@ -9,9 +9,8 @@
 import UIKit
 
 class DataFetcher {
-    func loadUrlContent(url : String, completionBlock:@escaping ((_ data:Data?, _ error:Error?)->Void)) {
-        let requestUrl =  URL(string: url)
-        let request = URLRequest(url: requestUrl!)
+    func loadUrlContent(url : URL, completionBlock:@escaping ((_ data:Data?, _ error:Error?)->Void)) {
+        let request = URLRequest(url: url)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data, error == nil {
                 completionBlock(data,nil)

@@ -12,4 +12,9 @@ internal class URLManager: NSObject {
     internal class func getImageUrl() -> String {
         return Constant.imageUrl
     }
+    
+    internal class func getListUrl() -> String {
+        return Constant.flickrURl
+    }
+    
 }
