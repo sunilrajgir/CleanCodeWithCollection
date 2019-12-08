@@ -8,14 +8,14 @@
 
 import UIKit
 
-class PhotoController {
-    private let interactor : PhotoInteractor
-    private let presenter : PhotoPresenter
+class Controller {
+    private let interactor : Interactor
+    private let presenter : Presenter
     
     var currentPage = 1
     
     // @saber.inject
-    init(homeInteractor : PhotoInteractor, presenter : PhotoPresenter) {
+    init(homeInteractor : Interactor, presenter : Presenter) {
         self.interactor = homeInteractor
         self.presenter = presenter
     }

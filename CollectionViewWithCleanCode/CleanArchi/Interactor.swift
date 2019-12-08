@@ -14,12 +14,12 @@ enum ResponseState {
     case OFFLINE
 }
 
-class PhotoInteractor {
+class Interactor {
 
-    private let dataGateway : PhotoDataGateway
+    private let dataGateway : DataFetcher
     private let flickerModel : FlickrModel.Type
     
-    init(dataGateway : PhotoDataGateway, flickerModel : FlickrModel.Type) {
+    init(dataGateway : DataFetcher, flickerModel : FlickrModel.Type) {
         self.dataGateway = dataGateway
         self.flickerModel = flickerModel
     }

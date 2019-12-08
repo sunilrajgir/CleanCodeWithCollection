@@ -8,10 +8,10 @@
 
 import UIKit
 
-class PhotoPresenter {
-    let viewModel: PhotoViewModel
+class Presenter {
+    let viewModel: ViewModel
     
-    init(viewModel: PhotoViewModel) {
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
   

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoViewModel {
+class ViewModel {
     
     var canShowLoader: Bool? {
         didSet {

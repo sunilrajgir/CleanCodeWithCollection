@@ -8,10 +8,10 @@
 
 import UIKit
 
-class PhotoView: UIView {
+class View: UIView {
     var totalRecords = 0
     var sourceArray = [FlickrURLs]()
-    var photoController : PhotoController?
+    var photoController : Controller?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -19,12 +19,12 @@ class PhotoView: UIView {
         super.awakeFromNib()
     }
     
-    func bind(controller : PhotoController) {
+    func bind(controller : Controller?) {
         self.photoController = controller
         let nib = UINib(nibName: "PhotoCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "PhotoCell")
         self.collectionView.register(UINib(nibName: "PhotoLoaderCell", bundle: nil), forCellWithReuseIdentifier: "PhotoLoaderCell")
-        self.sourceArray = controller.getViewData()
+        self.sourceArray = photoController?.getViewData() ?? [FlickrURLs]()
     }
     
     func loadNextPageData() {
@@ -33,7 +33,7 @@ class PhotoView: UIView {
 
 }
 
-extension PhotoView : PhotoViewModelProtocol {
+extension View : PhotoViewModelProtocol {
     func showLoader() {
         
     }
@@ -55,7 +55,7 @@ extension PhotoView : PhotoViewModelProtocol {
     }
 }
 
-extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension View: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1;
     }

@@ -9,17 +9,17 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-    var photoView : PhotoView?
-    var controller : PhotoController?
+    var photoView : View?
+    var controller : Controller?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataGateway = PhotoDataGateway()
-        let interactor = PhotoInteractor(dataGateway: dataGateway, flickerModel: FlickrModel.self)
-        self.photoView = self.view as? PhotoView
-        let photoViewModel = PhotoViewModel()
+        let dataGateway = DataFetcher()
+        let interactor = Interactor(dataGateway: dataGateway, flickerModel: FlickrModel.self)
+        self.photoView = self.view as? View
+        let photoViewModel = ViewModel()
         photoViewModel.viewDelegate = self.photoView
-        let presenter = PhotoPresenter(viewModel: photoViewModel)
-        self.controller = PhotoController(homeInteractor:interactor, presenter: presenter)
+        let presenter = Presenter(viewModel: photoViewModel)
+        self.controller = Controller(homeInteractor:interactor, presenter: presenter)
         self.photoView?.bind(controller: controller!)
         self.setUpNavigation()
     }

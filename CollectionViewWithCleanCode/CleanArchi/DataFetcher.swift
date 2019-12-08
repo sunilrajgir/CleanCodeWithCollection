@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoDataGateway {
+class DataFetcher {
     func loadUrlContent(url : String, completionBlock:@escaping ((_ data:Data?, _ error:Error?)->Void)) {
         let requestUrl =  URL(string: url)
         let request = URLRequest(url: requestUrl!)

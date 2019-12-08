@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoBuilder {
+class Builder {
 
     static func assembelModule() -> UIViewController {
         let view = PhotoViewController(nibName: "PhotoViewController", bundle: nil)
