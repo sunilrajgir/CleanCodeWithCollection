@@ -14,18 +14,15 @@ class PhotoCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.addImageView()
-        // Initialization code
-    }
-    
-    func addImageView(){
-        self.imageView = UIImageView(frame: self.bounds)
-        self.imageView?.backgroundColor = .red
-        //self.addSubview(self.imageView!)
     }
     
     override func prepareForReuse() {
-        self.imageView?.removeFromSuperview()
+        super.prepareForReuse()
+        self.imageView.image = nil
+    }
+    
+    func fetchImage(imageModel: FlickrURLs) {
+        
     }
 
 }
