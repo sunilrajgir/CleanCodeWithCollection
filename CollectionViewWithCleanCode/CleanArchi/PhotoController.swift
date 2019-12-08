@@ -18,14 +18,13 @@ class PhotoController {
         self.presenter = presenter
     }
     
-    func getViewData()-> [Int] {
+    func getViewData()-> [FlickrURLs] {
         return self.presenter.viewModel.getSourceArray()
     }
     
     func searchPhoto() {
         self.interactor.fetchData(url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=49b2afaa0f8ef1d1ec558b337ca989ff&text=cats&page=1&nojsoncallback=1") {[weak self] (data, error) in
-            
-            
+            self?.presenter.showFetchedData(photoModel: data)
         }
         
     }

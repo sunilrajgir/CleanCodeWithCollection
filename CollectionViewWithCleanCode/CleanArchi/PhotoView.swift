@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoView: UIView {
     
-    var sourceArray = [Int]()
+    var sourceArray = [FlickrURLs]()
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -39,8 +39,11 @@ extension PhotoView : PhotoViewModelProtocol {
         
     }
     
-    func showData(array: [Int]) {
-        
+    func showData(array: [FlickrURLs]) {
+        self.sourceArray = array
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -54,7 +57,11 @@ extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        if indexPath.row == self.sourceArray.count {
+            
+        } else {
+            return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

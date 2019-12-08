@@ -36,10 +36,10 @@ class PhotoViewModel {
     
 
     
-    var sourceArray = [1,2,3]
+    var sourceArray = [FlickrURLs]()
     weak var viewDelegate: PhotoViewModelProtocol?
     
-    func getSourceArray() -> [Int]{
+    func getSourceArray() -> [FlickrURLs]{
         return sourceArray;
     }
     
@@ -51,7 +51,11 @@ class PhotoViewModel {
         
     }
     
-    func showSuccessState() {
+    func showData(data:Any) {
+        if let photoModel = data as? FlickrModel {
+            self.sourceArray = photoModel.photos!.photo
+            self.viewDelegate?.showData(array: self.sourceArray)
+        }
         
     }
     

@@ -12,5 +12,5 @@ protocol PhotoViewModelProtocol: NSObject {
     func showLoader()
     func showServerError()
     func showInternetConnectionError()
-    func showData(array:[Int])
+    func showData(array:[FlickrURLs])
 }

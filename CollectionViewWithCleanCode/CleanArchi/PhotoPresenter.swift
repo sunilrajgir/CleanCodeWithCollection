@@ -10,11 +10,16 @@ import UIKit
 
 class PhotoPresenter {
     let viewModel: PhotoViewModel
+    
     init(viewModel: PhotoViewModel) {
         self.viewModel = viewModel
     }
   
     func resetToDefaultState() {
         
+    }
+    
+    func showFetchedData(photoModel: Any) {
+        self.viewModel.showData(data: photoModel)
     }
 }
