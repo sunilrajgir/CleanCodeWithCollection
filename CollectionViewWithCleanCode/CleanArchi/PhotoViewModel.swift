@@ -56,7 +56,13 @@ class PhotoViewModel {
             self.sourceArray = photoModel.photos!.photo
             self.viewDelegate?.showData(array: self.sourceArray)
         }
-        
+    }
+    
+    func showNextPageData(data:Any)  {
+        if let photoModel = data as? FlickrModel {
+            self.sourceArray.append(contentsOf: photoModel.photos!.photo)
+            self.viewDelegate?.showData(array: self.sourceArray)
+        }
     }
     
     func showErrorState() {

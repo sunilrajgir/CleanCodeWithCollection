@@ -22,4 +22,8 @@ class PhotoPresenter {
     func showFetchedData(photoModel: Any) {
         self.viewModel.showData(data: photoModel)
     }
+    
+    func showNextPageData(photoModel:Any)  {
+        self.viewModel.showNextPageData(data: photoModel)
+    }
 }

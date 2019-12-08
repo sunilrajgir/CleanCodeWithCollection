@@ -12,6 +12,8 @@ class PhotoController {
     private let interactor : PhotoInteractor
     private let presenter : PhotoPresenter
     
+    var currentPage = 1
+    
     // @saber.inject
     init(homeInteractor : PhotoInteractor, presenter : PhotoPresenter) {
         self.interactor = homeInteractor
@@ -23,9 +25,15 @@ class PhotoController {
     }
     
     func searchPhoto() {
-        self.interactor.fetchData(url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=49b2afaa0f8ef1d1ec558b337ca989ff&text=cats&page=1&nojsoncallback=1") {[weak self] (data, error) in
+        self.interactor.fetchData(url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=49b2afaa0f8ef1d1ec558b337ca989ff&text=cats&page=\(self.currentPage)&nojsoncallback=1") {[weak self] (data, error) in
             self?.presenter.showFetchedData(photoModel: data)
         }
-        
+    }
+    
+    func nextPageAction() {
+        self.currentPage = currentPage+1;
+        self.interactor.fetchData(url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=49b2afaa0f8ef1d1ec558b337ca989ff&text=cats&page=\(self.currentPage)&nojsoncallback=1") {[weak self] (data, error) in
+            self?.presenter.showNextPageData(photoModel: data)
+        }
     }
 }

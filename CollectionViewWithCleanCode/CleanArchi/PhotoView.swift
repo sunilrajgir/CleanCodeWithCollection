@@ -9,8 +9,9 @@
 import UIKit
 
 class PhotoView: UIView {
-    
+    var totalRecords = 0
     var sourceArray = [FlickrURLs]()
+    var photoController : PhotoController?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -19,9 +20,15 @@ class PhotoView: UIView {
     }
     
     func bind(controller : PhotoController) {
+        self.photoController = controller
         let nib = UINib(nibName: "PhotoCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "PhotoCell")
+        self.collectionView.register(UINib(nibName: "PhotoLoaderCell", bundle: nil), forCellWithReuseIdentifier: "PhotoLoaderCell")
         self.sourceArray = controller.getViewData()
+    }
+    
+    func loadNextPageData() {
+        self.photoController?.nextPageAction()
     }
 
 }
@@ -40,6 +47,7 @@ extension PhotoView : PhotoViewModelProtocol {
     }
     
     func showData(array: [FlickrURLs]) {
+        self.totalRecords = 209505
         self.sourceArray = array
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -53,20 +61,29 @@ extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.sourceArray.count
+        if self.totalRecords > self.sourceArray.count {
+            return self.sourceArray.count+1
+        } else {
+            return self.sourceArray.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == self.sourceArray.count {
-            
+            return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoLoaderCell", for: indexPath)
         } else {
             return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.size.width-60)/3
-        return CGSize(width: width, height: width)
+        if indexPath.row == self.sourceArray.count {
+             let width = UIScreen.main.bounds.size.width-20
+             return CGSize(width: width, height: 44)
+        } else {
+            let width = (UIScreen.main.bounds.size.width-60)/3
+             return CGSize(width: width, height: width)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -75,6 +92,12 @@ extension PhotoView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == self.sourceArray.count {
+            self.loadNextPageData()
+        }
     }
     
 }
