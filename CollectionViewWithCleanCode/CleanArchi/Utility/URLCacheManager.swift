@@ -8,15 +8,15 @@
 
 import UIKit
 
-class URLCacheManager {
-    static let shared = URLCacheManager()
-    var dataCache = NSCache<NSString, AnyObject>()
+internal class URLCacheManager {
+    internal static let shared = URLCacheManager()
+    private var dataCache = NSCache<NSString, AnyObject>()
     
-    func getDataForKey(key:NSString)->AnyObject? {
+    internal func getDataForKey(key:NSString)->AnyObject? {
         return self.dataCache.object(forKey: key)
     }
     
-    func addDataToCache(data:AnyObject,key:NSString) {
+    internal func addDataToCache(data:AnyObject,key:NSString) {
         self.dataCache.setObject(data, forKey: key)
     }
 }

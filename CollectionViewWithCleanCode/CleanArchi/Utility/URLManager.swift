@@ -8,8 +8,8 @@
 
 import UIKit
 
-class URLManager: NSObject {
-    class func getImageUrl() -> String {
+internal class URLManager: NSObject {
+    internal class func getImageUrl() -> String {
         return Constant.imageUrl
     }
 }

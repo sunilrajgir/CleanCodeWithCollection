@@ -8,36 +8,44 @@
 
 import UIKit
 
-class ImageDownloader {
-    static let shared  = ImageDownloader()
-    let operationQueue = OperationQueue()
-    var urlSession : URLSessionTask?
+internal class ImageDownloader {
+    internal static let shared  = ImageDownloader()
+    internal let operationQueue = OperationQueue()
+    internal var requestInProcessHasMap : [String: Any] = [:]
     private init() {
         self.setOperationQueue()
     }
     
-    func setOperationQueue()  {
+    private func setOperationQueue()  {
         self.operationQueue.maxConcurrentOperationCount = 10
         self.operationQueue.qualityOfService = .background
     }
     
-    func downloadImage(url: URL, completion:@escaping((_ image:UIImage?, _ error: Error?)->Void)) {
+    internal func downloadImage(url: URL, completion:@escaping((_ image:UIImage?, _ error: Error?)->Void)) {
         let hashKey = NSString(string: url.absoluteString)
         if let cachedData = URLCacheManager.shared.getDataForKey(key:hashKey) as? UIImage {
             completion(cachedData, nil)
         }
-        let operation = BlockOperation {
-            let request = URLRequest(url: url)
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let imageData = data, error == nil, let image = UIImage(data: imageData)  {
-                    completion(image, nil)
-                    URLCacheManager.shared.addDataToCache(data: image, key: hashKey)
-                } else {
-                    completion(nil, error)
-                }
-            }.resume()
+        
+        if let op = requestInProcessHasMap[url.absoluteString] as? Operation {
+            op.qualityOfService = .userInitiated
+        } else {
+            let operation = BlockOperation {
+                let request = URLRequest(url: url)
+                URLSession.shared.dataTask(with: request) { [weak self](data, response, error) in
+                    if let imageData = data, error == nil, let image = UIImage(data: imageData)  {
+                        completion(image, nil)
+                        URLCacheManager.shared.addDataToCache(data: image, key: hashKey)
+                    } else {
+                        completion(nil, error)
+                    }
+                    self?.requestInProcessHasMap.removeValue(forKey: url.absoluteString)
+                }.resume()
+            }
+            operation.qualityOfService = .background
+            self.requestInProcessHasMap[url.absoluteString] = operation
+            self.operationQueue.addOperation(operation)
         }
-        self.operationQueue.addOperation(operation)
     }
     
 }

@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Constant {
-    static let imageUrl = "https://farm\(Constant.farm).staticflickr.com/\(Constant.server)/\(Constant.id)_\(Constant.secret).jpg"
-    static let farm = "<farm>"
-    static let server = "<server>"
-    static let id = "<id>"
-    static let secret = "<secret>"
+internal struct Constant {
+    internal static let imageUrl = "https://farm\(Constant.farm).staticflickr.com/\(Constant.server)/\(Constant.id)_\(Constant.secret).jpg"
+    internal static let farm = "<farm>"
+    internal static let server = "<server>"
+    internal static let id = "<id>"
+    internal static let secret = "<secret>"
 }
