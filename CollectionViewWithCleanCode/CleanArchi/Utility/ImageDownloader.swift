@@ -21,10 +21,9 @@ class ImageDownloader {
         self.operationQueue.qualityOfService = .background
     }
     
-    func downloadImage(url: String, completion:@escaping((_ image:UIImage?, _ error: Error?)->Void)) {
+    func downloadImage(url: URL, completion:@escaping((_ image:UIImage?, _ error: Error?)->Void)) {
         let operation = BlockOperation {
-            let requestUrl =  URL(string: url)
-            let request = URLRequest(url: requestUrl!)
+            let request = URLRequest(url: url)
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let imageData = data, error == nil, let image = UIImage(data: imageData)  {
                     completion(image, nil)

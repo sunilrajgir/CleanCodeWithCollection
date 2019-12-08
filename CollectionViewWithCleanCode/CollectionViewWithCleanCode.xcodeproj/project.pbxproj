@@ -29,6 +29,8 @@
 		3255D7E7239BED2B0050BC08 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3255D7E6239BED2B0050BC08 /* DataFetcher.swift */; };
 		3255D7E9239BED4B0050BC08 /* PhotoConnectionGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3255D7E8239BED4B0050BC08 /* PhotoConnectionGateway.swift */; };
 		32D18F1E239CE10C007B8929 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D18F1D239CE10C007B8929 /* ImageDownloader.swift */; };
+		32D18F20239CEF54007B8929 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D18F1F239CEF54007B8929 /* URLManager.swift */; };
+		32D18F22239CF0AF007B8929 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D18F21239CF0AF007B8929 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		3255D7E6239BED2B0050BC08 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		3255D7E8239BED4B0050BC08 /* PhotoConnectionGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoConnectionGateway.swift; sourceTree = "<group>"; };
 		32D18F1D239CE10C007B8929 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		32D18F1F239CEF54007B8929 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		32D18F21239CF0AF007B8929 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,7 @@
 		3255D7CF239BCE7D0050BC08 /* CleanArchi */ = {
 			isa = PBXGroup;
 			children = (
-				32D18F1C239CE0BD007B8929 /* DownloadManager */,
+				32D18F1C239CE0BD007B8929 /* Utility */,
 				3255D7D0239BCEA30050BC08 /* PhotoViewController.swift */,
 				3255D7D1239BCEA30050BC08 /* PhotoViewController.xib */,
 				3255D7D6239BD2360050BC08 /* View.swift */,
@@ -123,12 +127,14 @@
 			path = CleanArchi;
 			sourceTree = "<group>";
 		};
-		32D18F1C239CE0BD007B8929 /* DownloadManager */ = {
+		32D18F1C239CE0BD007B8929 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				32D18F1D239CE10C007B8929 /* ImageDownloader.swift */,
+				32D18F1F239CEF54007B8929 /* URLManager.swift */,
+				32D18F21239CF0AF007B8929 /* Constant.swift */,
 			);
-			path = DownloadManager;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +222,10 @@
 				3255D7DE239BE02F0050BC08 /* PhotoCollectionCell.swift in Sources */,
 				3255D7BE239BCE380050BC08 /* SceneDelegate.swift in Sources */,
 				3255D7D9239BD3A60050BC08 /* Builder.swift in Sources */,
+				32D18F22239CF0AF007B8929 /* Constant.swift in Sources */,
 				32D18F1E239CE10C007B8929 /* ImageDownloader.swift in Sources */,
 				3255D7DB239BD4C70050BC08 /* Controller.swift in Sources */,
+				32D18F20239CEF54007B8929 /* URLManager.swift in Sources */,
 				3255D7E1239BE9D80050BC08 /* Presenter.swift in Sources */,
 				3255D7E3239BE9F10050BC08 /* Interactor.swift in Sources */,
 				3255D7E7239BED2B0050BC08 /* DataFetcher.swift in Sources */,
