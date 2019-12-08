@@ -33,7 +33,7 @@ class PhotoCollectionCell: UICollectionViewCell {
         }
     }
     
-    func getDownloadUrl(imageModel: FlickrURLs)-> URL? {
+    private func getDownloadUrl(imageModel: FlickrURLs)-> URL? {
         var imageUrl = URLManager.getImageUrl()
         imageUrl = imageUrl.replacingOccurrences(of: Constant.farm, with: "\(imageModel.farm)")
         imageUrl = imageUrl.replacingOccurrences(of: Constant.server, with: imageModel.server)

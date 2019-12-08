@@ -22,11 +22,16 @@ class ImageDownloader {
     }
     
     func downloadImage(url: URL, completion:@escaping((_ image:UIImage?, _ error: Error?)->Void)) {
+        let hashKey = NSString(string: url.absoluteString)
+        if let cachedData = URLCacheManager.shared.getDataForKey(key:hashKey) as? UIImage {
+            completion(cachedData, nil)
+        }
         let operation = BlockOperation {
             let request = URLRequest(url: url)
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let imageData = data, error == nil, let image = UIImage(data: imageData)  {
                     completion(image, nil)
+                    URLCacheManager.shared.addDataToCache(data: image, key: hashKey)
                 } else {
                     completion(nil, error)
                 }

@@ -31,6 +31,7 @@
 		32D18F1E239CE10C007B8929 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D18F1D239CE10C007B8929 /* ImageDownloader.swift */; };
 		32D18F20239CEF54007B8929 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D18F1F239CEF54007B8929 /* URLManager.swift */; };
 		32D18F22239CF0AF007B8929 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D18F21239CF0AF007B8929 /* Constant.swift */; };
+		32D18F24239CF4EF007B8929 /* URLCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D18F23239CF4EF007B8929 /* URLCacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		32D18F1D239CE10C007B8929 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		32D18F1F239CEF54007B8929 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		32D18F21239CF0AF007B8929 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		32D18F23239CF4EF007B8929 /* URLCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				32D18F1D239CE10C007B8929 /* ImageDownloader.swift */,
 				32D18F1F239CEF54007B8929 /* URLManager.swift */,
 				32D18F21239CF0AF007B8929 /* Constant.swift */,
+				32D18F23239CF4EF007B8929 /* URLCacheManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				3255D7DE239BE02F0050BC08 /* PhotoCollectionCell.swift in Sources */,
 				3255D7BE239BCE380050BC08 /* SceneDelegate.swift in Sources */,
 				3255D7D9239BD3A60050BC08 /* Builder.swift in Sources */,
+				32D18F24239CF4EF007B8929 /* URLCacheManager.swift in Sources */,
 				32D18F22239CF0AF007B8929 /* Constant.swift in Sources */,
 				32D18F1E239CE10C007B8929 /* ImageDownloader.swift in Sources */,
 				3255D7DB239BD4C70050BC08 /* Controller.swift in Sources */,
