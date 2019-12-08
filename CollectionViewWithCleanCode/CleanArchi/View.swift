@@ -21,9 +21,9 @@ class View: UIView {
     
     func bind(controller : Controller?) {
         self.photoController = controller
-        let nib = UINib(nibName: "PhotoCell", bundle: nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: "PhotoCell")
-        self.collectionView.register(UINib(nibName: "PhotoLoaderCell", bundle: nil), forCellWithReuseIdentifier: "PhotoLoaderCell")
+        let nib = UINib(nibName: "PhotoCollectionCell", bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: "PhotoCollectionCell")
+        self.collectionView.register(UINib(nibName: "LoaderCollectionCell", bundle: nil), forCellWithReuseIdentifier: "LoaderCollectionCell")
         self.sourceArray = photoController?.getViewData() ?? [FlickrURLs]()
     }
     
@@ -70,9 +70,9 @@ extension View: UICollectionViewDataSource, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == self.sourceArray.count {
-            return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoLoaderCell", for: indexPath)
+            return self.collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionCell", for: indexPath)
         } else {
-            return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+            return self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionCell", for: indexPath)
         }
     }
     

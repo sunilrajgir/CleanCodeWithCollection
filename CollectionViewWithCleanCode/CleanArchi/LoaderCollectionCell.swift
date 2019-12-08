@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoLoaderCell: UICollectionViewCell {
+class LoaderCollectionCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
